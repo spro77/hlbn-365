@@ -14,23 +14,23 @@
 
 #counter {
   position: relative;
-  font: 8rem 'counter-dial';
+  font: 6rem 'counter-dial';
   color: black;
-  margin: 3rem 1rem 0;
+  margin: 2rem 0 0;
 }
 #counter::after {
   display: block;
   content: '';
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: transparent url('./img/1f950.png') no-repeat;
   background-size: contain;
   position: absolute;
-  right: -70px;
-  top: 35px;
+  right: -60px;
+  top: 30px;
 }
 
-h1,
+h2,
 p {
   text-align: center;
   font-family: sans-serif;
@@ -39,7 +39,7 @@ p {
 
 #button {
   width: 250px;
-  height: 120px;
+  height: 80px;
   margin: 20px 0;
   border-radius: 10px;
   background: orange;
