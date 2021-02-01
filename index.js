@@ -1,7 +1,9 @@
 const counter = document.getElementById('counter')
 const qr = document.getElementById('qr')
 const button = document.getElementById('button')
-let daysLeft
+let daysLeft = 365
+
+counter.textContent = daysLeft
 
 window.setInterval(function() {
   fetch('https://api.khlebniy.com.ua/promo/365')
