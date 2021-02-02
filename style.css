@@ -61,3 +61,9 @@ p {
 .hide {
   display: none !important;
 }
+
+.disabled {
+  pointer-events: none !important;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+  background: lightgray !important;
+}
