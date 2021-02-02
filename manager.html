@@ -8,16 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
     <div id="threesixfive">
       <img id="logo" src="./img/logo_ukr.svg" alt="khlebniy logo" />
       <div id="counter"></div>
-      <h2>ОЧІКУЮТЬ НА ЗУСТРІЧ<br />З ТОБОЮ!</h2>
-      <p>Просто покажи QR-код на касі та<br />насолоджуйся кожним круасаном:</p>
-      <img id="qr" src="./img/khlebniy365_2.svg" alt="QR code" />
+      <!-- <h2>ОЧІКУЮТЬ НА ЗУСТРІЧ<br />З ТОБОЮ!</h2> -->
+      <!-- <p>Просто покажи QR-код на касі та<br />насолоджуйся кожним круасаном:</p> -->
+      <div id="button">Кнопка</div>
     </div>
     <script>
       const counter = document.getElementById('counter')
+      const button = document.getElementById('button')
       let daysLeft = 365
 
       counter.textContent = daysLeft
@@ -27,7 +29,22 @@
           .then(response => response.json())
           .then(json => (daysLeft = json.data))
           .then((counter.textContent = daysLeft))
+        // counter.textContent = Math.round(Math.random(365) * 1000)
       }, 1000)
+
+      button.onclick = () => {
+        fetch('https://devapi.khlebniy.com.ua/promo/365', {
+          method: 'PATCH',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ data: daysLeft - 1 })
+        })
+          .then(response => response.json())
+          .then(json => (daysLeft = json.data))
+          .then((counter.textContent = daysLeft))
+      }
     </script>
   </body>
 </html>
